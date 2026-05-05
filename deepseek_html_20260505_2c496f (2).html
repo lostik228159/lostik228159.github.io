@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Моховая Падь | QR-экотропа и Глэмпинг | Амурская область</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f7f2;
+            color: #1e2a2e;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a4d3a 0%, #2a6e4e 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: white;
+            color: #1a4d3a;
+        }
+
+        /* Hero */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('https://placehold.co/1200x600/3a7a5a/white?text=Моховая+Падь+Амурская+область');
+            background-size: cover;
+            background-position: center 40%;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero .price {
+            font-size: 2rem;
+            background: #f4b942;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #1e2a2e;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #f4b942;
+            color: #1e2a2e;
+            padding: 14px 35px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ffce70;
+            transform: scale(1.02);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a4d3a;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #f4b942;
+            margin: 15px auto 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #2a6e4e;
+        }
+
+        .audience-item {
+            background: #eef3ea;
+            border-left: 5px solid #f4b942;
+            margin-bottom: 20px;
+        }
+
+        .program-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .program-day {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .program-day h3 {
+            background: #1a4d3a;
+            color: white;
+            display: inline-block;
+            padding: 5px 18px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .schedule-row {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+            flex-wrap: wrap;
+        }
+
+        .time {
+            font-weight: bold;
+            width: 100px;
+            color: #f4b942;
+        }
+
+        .desc {
+            flex: 1;
+        }
+
+        .qr-badge {
+            background: #1e2a2e;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .price-box {
+            background: #1a4d3a;
+            color: white;
+            text-align: center;
+            border-radius: 30px;
+            padding: 30px;
+        }
+
+        .price-box .old-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .price-box .big-price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .footer {
+            background: #1e2a2e;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-check li {
+            padding-left: 28px;
+            margin-bottom: 10px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="%232a6e4e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
+            background-size: 18px;
+        }
+        form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-flex">
+        <div class="logo">
+            <h1>🌿 Моховая Падь</h1>
+            <p>QR-экотропа | Глэмпинг | Амурская область</p>
+        </div>
+        <button class="lang-btn" id="langSwitcher">🇨🇳 中文 / 🇷🇺 RU</button>
+    </div>
+</header>
+
+<main>
+    <!-- Hero блок -->
+    <div class="hero">
+        <div class="container">
+            <h1>Моховая Падь: QR-экотропа<br>и озеро Песчаное</h1>
+            <p>2 дня в уникальной природе Амурской области с комфортом глэмпинга</p>
+            <div class="price">10 511 ₽ / человек</div>
+            <a href="#booking" class="btn">📅 Забронировать тур</a>
+            <p style="margin-top: 20px; font-size: 0.9rem;">✅ Всё включено: трансфер, питание, гид, QR-квест</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Целевая аудитория (акцент на Китай) -->
+        <section>
+            <h2 class="section-title">Кому подходит этот тур</h2>
+            <div class="grid-3">
+                <div class="card audience-item">
+                    <h3>🇨🇳 Туристы из Китая</h3>
+                    <p><strong>Приоритетная аудитория.</strong> Близость к границе, уникальная «русская» природа, безопасность, интерактивный формат (QR-коды) и <strong>отдельное меню с китайской кухней</strong>.</p>
+                </div>
+                <div class="card audience-item">
+                    <h3>👨‍👩‍👧‍👦 Семьи с детьми 8–14 лет</h3>
+                    <p>Геймификация, квесты по QR-кодам, комфортный глэмпинг вместо палаток. Идеально для семейного уикенда.</p>
+                </div>
+                <div class="card audience-item">
+                    <h3>📸 Молодежь и пары 25–35 лет</h3>
+                    <p>Нестандартный формат, «умный» эко-отдых, фотосессии на смотровых площадках (долина реки Зеи, озеро Песчаное).</p>
+                </div>
+            </div>
+            <div class="card" style="background:#faf3e0; margin-top:10px;">
+                <p>❌ <strong>Не подойдет:</strong> любителям шумных вечеринок «всё включено» и экстремальных походов без удобств.</p>
+                <p>🔑 <strong>Ключевая особенность:</strong> Тур разработан под запросы гостей из КНР (технологичность, чистая экология, локальная кухня, комфорт).</p>
+            </div>
+        </section>
+
+        <!-- О туре + преимущества -->
+        <section>
+            <h2 class="section-title">Почему Моховая Падь?</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🌱 Уникальная экосистема</h3>
+                    <p>Моховая Падь — природная территория с высоким рекреационным потенциалом. Здесь вас ждут урочище «Озеро Песчаное», долина реки Зеи и чистый воздух, оцененный по лишайникам.</p>
+                </div>
+                <div class="card">
+                    <h3>📱 Интерактив через QR-коды</h3>
+                    <p>Никаких скучных лекций! Сканируйте коды на тропе: узнайте о следах зверей, звуках птиц, камуфляже в природе и даже проверьте чистоту воздуха по лишайникам.</p>
+                </div>
+                <div class="card">
+                    <h3>🏕️ Глэмпинг + база "Снежинка"</h3>
+                    <p>Проживание в шатрах с кроватями (Амур-Глэмпинг) и старт на благоустроенной базе. Тёплый душ, комфорт и при этом полное погружение в природу.</p>
+                </div>
+                <div class="card">
+                    <h3>🍲 Аутентичное питание</h3>
+                    <p>Речная рыба (амур, щука), мясо на гриле, дикоросы. Отдельно для гостей из Китая — <strong>ужин с китайской кухней</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Программа тура (сокращённая из вашей таблицы) -->
+        <section>
+            <h2 class="section-title">Программа тура / 2 дня — 1 ночь</h2>
+            <div class="program-day">
+                <h3>📅 День 1 — Погружение в природу</h3>
+                <div class="schedule-row"><div class="time">10:00</div><div class="desc">Встреча на автовокзале Благовещенска, инструктаж</div></div>
+                <div class="schedule-row"><div class="time">10:00-11:00</div><div class="desc">Трансфер → база «Снежинка» (вводный рассказ)</div></div>
+                <div class="schedule-row"><div class="time">12:00-13:00</div><div class="desc">Обед из местных продуктов</div></div>
+                <div class="schedule-row"><div class="time">14:00-16:00</div><div class="desc">Экскурсия по окрестностям базы, биологическое разнообразие</div></div>
+                <div class="schedule-row"><div class="time">16:00-18:00</div><div class="desc">Переезд в «Амур-Глэмпинг» и заселение</div></div>
+                <div class="schedule-row"><div class="time">18:00-21:00</div><div class="desc">Ужин, прогулки, наблюдение за природой</div></div>
+            </div>
+            <div class="program-day">
+                <h3>📅 День 2 — QR-экотропа и озеро Песчаное</h3>
+                <div class="schedule-row"><div class="time">10:30-13:30</div><div class="desc">Завтрак, свободное время</div></div>
+                <div class="schedule-row"><div class="time">13:30-17:30</div><div class="desc"><strong>Интерактивный маршрут с QR-кодами:</strong> <span class="qr-badge">QR</span> Рельеф, животные, растения → <span class="qr-badge">QR</span> Птицы озера → <span class="qr-badge">QR</span> Следы животных (игра) → <span class="qr-badge">QR</span> Лишайники (экология воздуха) → <span class="qr-badge">QR</span> Звуки природы → <span class="qr-badge">QR</span> Камуфляж</div></div>
+                <div class="schedule-row"><div class="time">17:30-18:00</div><div class="desc">Возвращение на базу</div></div>
+                <div class="schedule-row"><div class="time">18:30-19:30</div><div class="desc">Ужин (🇨🇳 китайская кухня)</div></div>
+                <div class="schedule-row"><div class="time">10:00 (след. день)</div><div class="desc">Трансфер в Благовещенск, завершение тура</div></div>
+            </div>
+            <p style="text-align:center; margin-top:20px;">* Точная карта-схема маршрута выдается гидом.</p>
+        </section>
+
+        <!-- Включено / Не включено + Калькуляция кратко -->
+        <section>
+            <h2 class="section-title">Что входит в стоимость</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <ul class="list-check">
+                        <li>Встреча на автовокзале г. Благовещенск</li>
+                        <li>Трансферы по маршруту (микроавтобус комфорт-класса)</li>
+                        <li>Работа гида-экскурсовода (2 дня)</li>
+                        <li>Проживание в эко-отеле «Амур-Глэмпинг» (шатры, постельное белье)</li>
+                        <li>QR-экскурсия по Моховой Пади (интерактивные задания)</li>
+                        <li>Питание по программе: 2 обеда, 1 ужин (с китайской кухней), завтрак + напитки</li>
+                        <li>Страхование на время тура</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="color:#c94f4f;">🔴 Не включено</h3>
+                    <ul class="list-check" style="background: none;">
+                        <li style="background: none; padding-left:0;">✖ Проезд до Благовещенска и обратно</li>
+                        <li style="background: none; padding-left:0;">✖ Дополнительные услуги вне программы (сувениры, личные расходы)</li>
+                    </ul>
+                    <div class="price-box" style="margin-top:20px; background:#f4b942; color:#1e2a2e;">
+                        <div style="font-size:1rem;">Итоговая цена на группу 11 чел.</div>
+                        <div class="big-price" style="font-size:2rem;">115 619 ₽</div>
+                        <div>≈ 10 511 ₽ с человека</div>
+                        <div style="font-size:0.8rem;">Экономически обосновано, низкая себестоимость за счёт отсутствия платных входов</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Технологии -->
+        <section>
+            <h2 class="section-title">Цифровые технологии на тропе</h2>
+            <div class="grid-3">
+                <div class="card">📲 <strong>QR-коды</strong> — моментальный доступ к информации о растениях, птицах и экологии.</div>
+                <div class="card">🎮 <strong>Геймификация</strong> — игра «Следы в природе», задания на маскировку и звуки леса.</div>
+                <div class="card">🌍 <strong>Интерактивность</strong> — изучение природы через современные форматы без скучных табличек.</div>
+            </div>
+        </section>
+
+        <!-- Форма бронирования -->
+        <section id="booking">
+            <h2 class="section-title">Забронировать тур</h2>
+            <div class="grid-2" style="align-items: center;">
+                <div class="card">
+                    <form action="#" method="post">
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="tel" placeholder="Телефон (WhatsApp / Telegram)" required>
+                        <input type="email" placeholder="Email">
+                        <select style="width:100%; padding:12px; border-radius:30px;">
+                            <option>Количество человек (группа до 11)</option>
+                            <option>1 человек (добор в группу)</option>
+                            <option>2 человека</option>
+                            <option>3-4 человека</option>
+                            <option>Группа 11 человек</option>
+                        </select>
+                        <input type="text" placeholder="Предпочитаемая дата заезда">
+                        <button type="submit" class="btn" style="width:100%; margin-top:10px;">Отправить заявку</button>
+                        <p style="font-size:0.7rem; margin-top:10px;">Менеджер свяжется для подтверждения</p>
+                    </form>
+                </div>
+                <div class="card">
+                    <h3>📞 Остались вопросы?</h3>
+                    <p>Подходит для иностранных туристов (Китай). Возможно сопровождение на китайском языке.</p>
+                    <p>📍 Старт: г. Благовещенск, автовокзал.<br>
+                    🕒 Длительность: 2 дня / 1 ночь.<br>
+                    🏕 Размещение: двухместные номера / шатры.</p>
+                    <p style="margin-top:20px;">✨ <strong>Уникальное предложение:</strong> сочетание экотропы, глэмпинга и цифрового квеста в Амурской области.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>🌿 Эко-тур «Моховая Падь: QR-экотропа и озеро Песчаное» | Амурская область, г. Благовещенск</p>
+        <p>Разработано для популяризации экологического туризма среди российских и китайских гостей.</p>
+        <p style="margin-top:10px; font-size:0.8rem;">© 2025 | Все расчёты экономически обоснованы</p>
+    </div>
+</footer>
+
+<script>
+    // Простая заглушка для демонстрации переключения языка (можно расширить)
+    const langBtn = document.getElementById('langSwitcher');
+    let lang = 'ru';
+    langBtn.addEventListener('click', () => {
+        if(lang === 'ru') {
+            alert('🇨🇳 中文版本即将推出 / Chinese version coming soon. Сейчас отображается русская версия для туристов из КНР.');
+            lang = 'cn';
+        } else {
+            alert('Версия на русском языке');
+            lang = 'ru';
+        }
+    });
+</script>
+</body>
+</html>
